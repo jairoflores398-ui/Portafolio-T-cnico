@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jairo Flores Araya — Portafolio técnico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --bg-panel: #ffffff;
+      --bg-panel-2: #eef1f4;
+      --border: #d7dde3;
+      --text: #1a2230;
+      --text-dim: #5b6675;
+      --accent: #0d7d72;
+      --accent-soft: #dff5f2;
+      --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b1220;
+        --bg-panel: #121a2b;
+        --bg-panel-2: #0f1626;
+        --border: #253047;
+        --text: #e6ecf5;
+        --text-dim: #93a2bb;
+        --accent: #5eead4;
+        --accent-soft: rgba(94, 234, 212, .1);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0b1220;
+      --bg-panel: #121a2b;
+      --bg-panel-2: #0f1626;
+      --border: #253047;
+      --text: #e6ecf5;
+      --text-dim: #93a2bb;
+      --accent: #5eead4;
+      --accent-soft: rgba(94, 234, 212, .1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header.top {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 5;
+    }
+
+    nav.wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 20px;
+      font-size: .9rem;
+    }
+
+    .navlinks a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    .navlinks a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    section.hero {
+      padding-top: 64px;
+      padding-bottom: 48px;
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: .85rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin: 10px 0 6px;
+      line-height: 1.2;
+    }
+
+    .role {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      max-width: 60ch;
+    }
+
+    .term {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: .85rem;
+      padding: 14px 16px;
+      max-width: 440px;
+    }
+
+    .term .p {
+      color: var(--accent);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: .9rem;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #03211d;
+      border-color: var(--accent);
+    }
+
+    .btn.ghost {
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 22px;
+    }
+
+    p.lead {
+      color: var(--text-dim);
+      max-width: 68ch;
+    }
+
+    .project {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .project h3 .path {
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: .85rem;
+    }
+
+    .project p {
+      margin: 8px 0 12px;
+      color: var(--text-dim);
+      font-size: .95rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: .75rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    .plinks a {
+      font-size: .85rem;
+      margin-right: 16px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .case {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 26px 20px;
+    }
+
+    .case h3 {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .case .sub {
+      color: var(--text-dim);
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      margin-top: 18px;
+    }
+
+    .field .lbl {
+      font-family: var(--mono);
+      font-size: .78rem;
+      color: var(--accent);
+    }
+
+    .field p {
+      margin: 4px 0 0;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .field ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .skillrow {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 60px;
+    }
+
+    .contact-grid {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: .95rem;
+    }
+
+    .contact-grid .lbl {
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: .78rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-grid a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .foot-note {
+      color: var(--text-dim);
+      font-size: .85rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="top">
+    <nav class="wrap">
+      <span class="brand">jairo<span style="color:var(--accent)">.</span>flores</span>
+      <div class="navlinks">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#caso-de-estudio">Caso de estudio</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="kicker">Portafolio técnico</div>
+      <h1>Jairo Flores Araya</h1>
+      <p class="role">Desarrollador full-stack en formación, con base en Copiapó, Chile.</p>
+      <div class="term">
+        <div><span class="p">&gt;</span> whoami</div>
+        <div>Bootcamp Alkemy · JavaScript, Node.js, bases de datos relacionales</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn ghost" href="#contacto">Contacto</a>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p class="lead">
+        Estudiante de Ingeniería Informática en la Universidad Autónoma de Chile y poseo conocimientos en desarrollo web
+        . Durante mi formación, he desarrollado habilidades en JavaScript, creación de
+        interfaces, consumo de APIs, desarrollo de backends y gestión de bases de datos relacionales.
+
+      </p>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <p class="lead" style="margin-bottom:24px;">Tres proyectos del bootcamp que muestran el recorrido desde
+        fundamentos de JavaScript hasta un backend con base de datos real.</p>
+
+      <div class="project">
+        <h3>Control de Gastos Mensuales <span class="path">abp-m3</span></h3>
+        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span
+            class="tag">JavaScript</span><span class="tag">Bootstrap 5</span></div>
+        <p>Cuatro lecciones progresivas de fundamentos de JavaScript (variables, condicionales, arreglos, funciones y
+          objetos) que terminan en una app real de control de gastos, con cálculo de presupuesto y alertas por
+          excedente.</p>
+        <div class="plinks">
+          <a href="https://github.com/jairoflores398-ui/abp-m3" target="_blank">Código →</a>
+          <a href="https://jairoflores398-ui.github.io/abp-m3/" target="_blank">Demo en vivo →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>TaskFlow <span class="path">abp-m4</span></h3>
+        <div class="tags"><span class="tag">JavaScript (POO)</span><span class="tag">ES Modules</span><span
+            class="tag">Bootstrap</span><span class="tag">Fetch API</span></div>
+        <p>Aplicación de una sola página para crear y organizar tareas, con cuenta regresiva a la fecha límite,
+          indicadores de estado y persistencia en el navegador. Usa clases (Tarea, GestorTareas) y consume una API
+          externa para poblar datos iniciales.</p>
+        <div class="plinks">
+          <a href="https://github.com/jairoflores398-ui/abp-m4" target="_blank">Código →</a>
+          <a href="https://jairoflores398-ui.github.io/abp-m4/" target="_blank">Demo en vivo →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>API de Usuarios y Pedidos <span class="path">abp-m6</span></h3>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span
+            class="tag">Sequelize</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span></div>
+        <p>Backend REST para gestionar usuarios y pedidos sobre una base de datos relacional, con autenticación por JWT,
+          contraseñas protegidas con hash, carga de archivos y transacciones con reversión automática ante errores.</p>
+        <div class="plinks">
+          <a href="https://github.com/jairoflores398-ui/abp-m6" target="_blank">Código →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="caso-de-estudio">
+      <h2>Caso de estudio</h2>
+      <div class="case">
+        <h3>Bajo el capó: de JSON a PostgreSQL</h3>
+        <div class="sub">Cómo convertí un backend con persistencia en un archivo plano en una API con base de datos
+          relacional, autenticación y transacciones.</div>
+
+        <div class="field">
+          <span class="lbl">// descripción</span>
+          <p>Este es el backend de la evaluación de Módulo 6 del bootcamp de Alkemy (con una actualización en Módulo 8):
+            una API REST construida con Node.js, Express y Sequelize que administra usuarios y sus pedidos sobre una
+            base de datos PostgreSQL.</p>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// desafío principal</span>
+          <p>Pasar de una primera versión que guardaba todo en un archivo JSON a un modelo de datos relacional real, sin
+            perder funcionalidad y sumando seguridad: que las contraseñas no quedaran expuestas y que una operación con
+            varios pasos no dejara datos a medio guardar si algo fallaba.</p>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// solución propuesta</span>
+          <p>Diseñé la relación uno a muchos entre usuarios y pedidos con Sequelize, separé el código en rutas,
+            controladores y modelos, agregué autenticación con JWT y hash de contraseñas con bcrypt, validaciones de
+            datos (email único, largo mínimo de contraseña) y una operación transaccional de creación combinada (usuario
+            + pedido) con reversión automática si algo sale mal.</p>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// herramientas técnicas</span>
+          <div class="skillrow">
+            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span>
+            <span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">bcrypt</span>
+            <span class="tag">Postman</span><span class="tag">OpenAPI</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// aprendizajes</span>
+          <ul>
+            <li>Por qué separar rutas, controladores y modelos hace el código más fácil de mantener.</li>
+            <li>Cómo modelar relaciones entre tablas con un ORM en vez de escribir todo el SQL a mano.</li>
+            <li>La importancia de nunca devolver datos sensibles (como el hash de la contraseña) en las respuestas.</li>
+            <li>Cómo usar transacciones para que una operación de varios pasos no quede a medio camino.</li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// métricas de impacto</span>
+          <ul>
+            <li>CRUD completo de usuarios más 3 endpoints adicionales: login, creación combinada usuario+pedido y
+              consulta de pedidos por usuario.</li>
+            <li>100% de las contraseñas almacenadas con hash, y todas las rutas sensibles protegidas con JWT.</li>
+            <li>La operación combinada usuario+pedido incorpora reversión automática ante error, evitando registros
+              incompletos.</li>
+            <li>API documentada por completo en OpenAPI, importable directo en Postman o Swagger.</li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <span class="lbl">// por qué elegí este proyecto</span>
+          <p>Porque marca el salto de escribir solo interfaces a construir un backend real, donde ya no basta con que
+            "funcione": tiene que ser seguro, ordenado y fácil de mantener. Es el proyecto donde más crecí en este
+            bootcamp.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div><span class="lbl">Correo</span><a href="mailto:jairoflores.398@gmail.com">jairoflores.398@gmail.com</a>
+        </div>
+        <div><span class="lbl">Teléfono</span><a href="tel:+56992341286">+56 9 9234 1286</a></div>
+        <div><span class="lbl">GitHub</span><a href="https://github.com/jairoflores398-ui"
+            target="_blank">jairoflores398-ui</a></div>
+        <div><span class="lbl">Ubicación</span><span>Copiapó, Chile</span></div>
+      </div>
+      <p class="foot-note">Portafolio técnico — actualizado como parte del proceso de práctica y postulación.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
