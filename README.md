@@ -39,7 +39,9 @@ La página está construida con HTML y CSS puro, sin dependencias externas de co
 Portafolio-tecnico/
 ├── README.md
 ├── portafolio-jairo-flores.html
-└── (opcionalmente otros assets si se añaden más adelante)
+└── assets/
+	└── css/
+		└── styles.css
 ```
 
 ## Requisitos
@@ -101,7 +103,7 @@ En la sección de proyectos puedes cambiar:
 Edita el bloque relacionado con la experiencia técnica más relevante para reflejar proyectos, decisiones de diseño o aprendizajes específicos.
 
 ### 4. Estilos visuales
-Los colores, tipografías y espaciados se definen en el bloque `<style>`. Puedes cambiar:
+Los colores, tipografías y espaciados se definen en `assets/css/styles.css`. Puedes cambiar:
 
 - Paleta de colores
 - Fuentes
